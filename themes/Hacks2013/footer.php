@@ -11,7 +11,7 @@
   </nav>
 
   <p id="copyright">
-    <a href="http://aws.amazon.com/ko/what-is-cloud-computing?sc_icountry=KR&sc_icampaigntype=devleoper_{{campaign.id}}"><img align="right" src="http://awsmedia
+    <a href="http://aws.amazon.com/ko/what-is-cloud-computing?sc_icountry=KR&amp;sc_icampaigntype=devleoper_{{campaign.id}}"><img align="right" src="http://awsmedia
 .s3.amazonaws.com/AWS_logo_poweredby_black_127px.png" alt="Powered by AWS Cloud Computing"></a> 별도의 고지가 없는 한, 본 사이트의 모든 콘텐츠는 <br /><a hr
 ef="http://creativecommons.org/licenses/by-sa/3.0/" rel="license external">Creative Commons Attribution Share-Alike License v3.0</a> 라이센스 하에서 이용 가능합니다.
   </p>
