@@ -33,21 +33,20 @@
   <!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_directory'); ?>/css/ie7.css" /><![endif]-->
   <!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_directory'); ?>/css/ie6.css" /><![endif]-->
 
-  <title><?php if (( is_single() || is_page() ) && (!is_front_page()) ) : ?><?php wp_title($sep = ''); ?> &#10025;
-    <?php elseif ( is_search() ) : ?>Search results for &#8220;<?php the_search_query(); ?>&#8221; &#10025;
-    <?php elseif ( is_category('Demo') ) : ?>Demos &#10025;
-    <?php elseif ( is_category('Featured Demo') ) : ?>Featured Demos &#10025;
-    <?php elseif ( is_category('Featured Article') ) : ?>Featured Articles &#10025;
-    <?php elseif ( is_category() ) : ?><?php single_cat_title(); ?> Articles &#10025;
-    <?php elseif ( is_author() ) : ?>Articles by <?php echo get_userdata(intval($author))->display_name; ?> &#10025;
-    <?php elseif ( is_tag() ) : ?>Articles tagged &#8220;<?php single_tag_title(); ?>&#8221; &#10025;
-    <?php elseif ( is_day() ) : ?>Articles for <?php the_time('F jS, Y'); ?> &#10025;
-    <?php elseif ( is_month() ) : ?>Articles for <?php the_time('F Y'); ?> &#10025;
-    <?php elseif ( is_year() ) : ?>Articles for <?php the_time('Y'); ?> &#10025;
-    <?php elseif ( is_404() ) : ?>Not Found &#10025;
-    <?php elseif ( is_home() ) : ?>Articles &#10025;
+  <title><?php bloginfo('name'); ?><?php if (( is_single() || is_page() ) && (!is_front_page()) ) : ?><?php wp_title($sep = ''); ?> &#10025;
+    <?php elseif ( is_search() ) : ?>검색 결과: &#8220;<?php the_search_query(); ?>&#8221; &#10025;
+    <?php elseif ( is_category('Demo') ) : ?>기술 데모 &#10025;
+    <?php elseif ( is_category('Featured Demo') ) : ?>주요 데모 &#10025;
+    <?php elseif ( is_category('Featured Article') ) : ?>주요 문서 &#10025;
+    <?php elseif ( is_category() ) : ?><?php single_cat_title(); ?> 분류 &#10025;
+    <?php elseif ( is_author() ) : ?><?php echo get_userdata(intval($author))->display_name; ?> &#10025;
+    <?php elseif ( is_tag() ) : ?>&#8220;<?php single_tag_title(); ?>&#8221; &#10025;
+    <?php elseif ( is_day() ) : ?><?php the_time('F jS, Y'); ?> &#10025;
+    <?php elseif ( is_month() ) : ?><?php the_time('F Y'); ?> &#10025;
+    <?php elseif ( is_year() ) : ?><?php the_time('Y'); ?> &#10025;
+    <?php elseif ( is_404() ) : ?>&#10025;
+    <?php elseif ( is_home() ) : ?>&#10025;
     <?php endif; ?>
-    <?php bloginfo('name'); ?>
   </title>
 
   <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
@@ -86,24 +85,24 @@
 <body <?php body_class(); ?>>
 <div id="outer-wrapper">
   <ul id="nav-access" role="navigation">
-    <li><a href="#content-main">Skip to content</a></li>
+    <li><a href="#content-main">내용으로 이동</a></li>
   </ul>
 
   <header id="branding">
     <?php if ( (is_front_page()) && ($paged < 1) ) { ?>
     <h1 id="logo">hacks.mozilla.org</h1>
     <?php } else { ?>
-    <h4 id="logo">hacks.mozilla.org <a href="<?php bloginfo('url'); ?>" title="Go to the home page">Home</a></h4>
+    <h4 id="logo">hacks.mozilla.or.kr <a href="<?php bloginfo('url'); ?>" title="Go to the home page">첫화면</a></h4>
     <?php } ?>
 
     <?php include (TEMPLATEPATH . '/searchform.php'); ?>
 
     <nav id="nav-main">
       <ul role="navigation">
-        <li <?php if ( (is_front_page()) && ($paged < 1) ) { ?>class="selected"<?php } ?>><a href="<?php bloginfo('url'); ?>">Home</a></li>
-        <li <?php if ( is_home() ) { ?>class="selected"<?php } ?>><a href="<?php echo get_permalink(get_page_by_path('articles')->ID); ?>">Articles</a></li>
-        <li <?php if ( is_page('demos') || is_category('demo') || is_category('featured-demo')) { ?>class="selected"<?php } ?>><a href="<?php echo get_permalink(get_page_by_path('demos')->ID); ?>">Demos</a></li>
-        <li <?php if ( is_page('about') ) {?>class="selected"<?php } ?>><a href="<?php echo get_permalink(get_page_by_path('about')->ID); ?>">About</a></li>
+        <li <?php if ( (is_front_page()) && ($paged < 1) ) { ?>class="selected"<?php } ?>><a href="<?php bloginfo('url'); ?>">첫화면</a></a></li>
+        <li <?php if ( is_home() ) { ?>class="selected"<?php } ?>><a href="<?php echo get_permalink(get_page_by_path('articles')->ID); ?>">기술 문서</a></li>
+        <li <?php if ( is_page('demos') || is_category('demo') || is_category('featured-demo')) { ?>class="selected"<?php } ?>><a href="<?php echo get_permalink(get_page_by_path('demos')->ID); ?>">구현 예제</a></li>
+        <li <?php if ( is_page('about') ) {?>class="selected"<?php } ?>><a href="<?php echo get_permalink(get_page_by_path('about')->ID); ?>">소개</a></li>
       </ul>
     </nav>
     <a href="#" id="tabzilla">Mozilla</a>
